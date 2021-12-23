@@ -13,6 +13,10 @@ namespace EmreSavas.MarsRover.Core.Tests
             PlateauGrid = new PlateauGrid(5, 5);
                _mockPlateauGrid = new Mock<PlateauGrid>();
         }
-        
+
+        public string AnGridSize()
+        {
+            return "5 5";
+        }
     }
 }

@@ -16,5 +16,10 @@
         {
 
         }
+
+        public BusinessException(int errorCode, string message) : base(string.Join(" ", errorCode, message))
+        {
+
+        }
     }
 }

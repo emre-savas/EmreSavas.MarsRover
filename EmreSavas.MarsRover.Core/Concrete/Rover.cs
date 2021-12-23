@@ -41,15 +41,15 @@ namespace EmreSavas.MarsRover.Core.Concrete
             CurrentPosition.DirectionType = RoverAction.TurnRight(CurrentPosition.DirectionType);
         }
 
-        public bool SetRoverPosition(string roverPositionInput)
+        public bool SetRoverPosition(string roverPosition)
         {
-            var roverPosition = roverPositionInput.Split(' ');
+            var roverPositionArray = roverPosition.Split(' ');
             if (roverPosition.Length != 3) return false;
             try
             {
-                var x = int.Parse(roverPosition[0]);
-                var y = int.Parse(roverPosition[1]);
-                var direction = roverPosition[2].ToUpper();
+                var x = int.Parse(roverPositionArray[0]);
+                var y = int.Parse(roverPositionArray[1]);
+                var direction = roverPositionArray[2].ToUpper();
 
                 if (direction.IsDirectionType())
                 {
@@ -59,16 +59,16 @@ namespace EmreSavas.MarsRover.Core.Concrete
                     return true;
                 }
             }
-            catch (BusinessException e)
+            catch (System.Exception e)
             {
-                throw new BusinessException(e.Message);
+                throw new BusinessException(BusinessExceptionCode.RoverPositionError.GetHashCode(), e.Message);
             }
             return false;
         }
 
-        public void CommandParse(string roverCommandInput)
+        public void CommandParse(string roverCommands)
         {
-            foreach (var letter in roverCommandInput.ToCharArray())
+            foreach (var letter in roverCommands.ToCharArray())
             {
                 switch (char.ToUpper(letter))
                 {

@@ -16,5 +16,11 @@ namespace EmreSavas.MarsRover.Core.Tests
         {
             Assert.IsFalse(PlateauGrid.DrawPlateauGrid(string.Empty));
         }
+
+        [Test]
+        public void DrawPlateauGrid_incoming_value_length_two_should_return_true()
+        {
+            Assert.IsTrue(PlateauGrid.DrawPlateauGrid(AnGridSize()));
+        }
     }
 }

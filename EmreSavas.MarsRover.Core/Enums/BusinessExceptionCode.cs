@@ -6,6 +6,7 @@
         ParsedCommandError=20102,
         PlateauXOutOfBoundaryError = 20103,
         PlateauYOutOfBoundaryError = 20104,
-        InvalidDirectionType=20105
+        InvalidDirectionType=20105,
+        RoverPositionError=20106
     }
 }
